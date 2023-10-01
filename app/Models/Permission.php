@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -36,5 +37,23 @@ class Permission extends Model
     public static function removeFrom($table_name)
     {
         self::where(['table_name' => $table_name])->delete();
+    }
+
+    public function userTrashed()
+    {
+        return $this->hasMany(User::class)->onlyTrashed();
+    }
+
+    public function user()
+    {
+        return $this->hasMany(User::class);
+    }
+    
+    public function scopeSearch($query, $term){
+        $query->where(function ($query) use ($term){
+            $query->where('name','like', "%$term%")
+                ->orWhere('key','like', "%$term%")
+                ->orWhere('table_name','like', "%$term%");
+        });
     }
 }

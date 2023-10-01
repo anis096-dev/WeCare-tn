@@ -41,5 +41,6 @@ return [
     'OrderBy'           => 'Order By',
     'SortBy'            => 'Sort By',
     'All'               => 'All',
+    'restore question'  => 'Restore',
 
 ];

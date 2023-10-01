@@ -13,13 +13,13 @@ use Livewire\WithFileUploads;
 class UserCreate extends Component
 {
     use WithFileUploads;
-    // use ToastAlert;
+    use ToastAlert;
 
     public $countries;
     public $roles;
     public $cities = [];
 
-    public $name, $username, $email, $countryId,
+    public $name, $email, $countryId,
         $cityId, $roleId, $password, $password_confirmation, $profilePhotoPath;
 
 
@@ -31,7 +31,6 @@ class UserCreate extends Component
     {
         return [
             'name' => ['required', 'string', 'max:50', 'min:5'],
-            'username' => ['required', 'string', 'min:5', 'max:20', Rule::unique(User::class), 'regex:/^([a-z])+?(_)?([a-z0-9])+$/i'],
             'email' => ['required', 'string', 'email', 'max:255', Rule::unique(User::class)],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'countryId' => 'required|integer|exists:App\Models\Country,id',
@@ -62,7 +61,6 @@ class UserCreate extends Component
 
         $data = [
             'name' => $this->name,
-            'username' => $this->username,
             'email' => $this->email,
             'password' => Hash::make($this->password),
             'role_id' => $this->roleId,
@@ -78,7 +76,7 @@ class UserCreate extends Component
 
         User::create($data);
         $this->closeCreateModel();
-        // $this->toast(__('user.create user'));
+        $this->toast(__('user.create user'));
         $this->emit('refreshParent');
 
     }

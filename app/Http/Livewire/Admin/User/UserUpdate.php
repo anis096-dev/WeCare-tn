@@ -12,7 +12,7 @@ use Livewire\WithFileUploads;
 
 class UserUpdate extends Component
 {
-    // use ToastAlert;
+    use ToastAlert;
     use WithFileUploads;
 
     public $countries;
@@ -21,7 +21,7 @@ class UserUpdate extends Component
 
     public $itemId;
 
-    public $name, $username, $email, $countryId,
+    public $name, $email, $countryId,
         $cityId, $roleId, $password, $password_confirmation, $profilePhotoPath ,$profile_photo_path;
 
 
@@ -33,7 +33,6 @@ class UserUpdate extends Component
     {
         return [
             'name' => ['required', 'string', 'max:50', 'min:5'],
-            'username' => ['required', 'string', 'min:5', 'max:20', 'regex:/^([a-z])+?(_)?([a-z0-9])+$/i', 'unique:users,username,'.$this->itemId],
             'email' => ['required', 'string', 'email', 'max:255','unique:users,email,'.$this->itemId],
             'password' => ['nullable', 'string', 'min:8', 'confirmed'],
             'countryId' => 'required|integer|exists:App\Models\Country,id',
@@ -55,7 +54,6 @@ class UserUpdate extends Component
         if (!empty($this->itemId)){
             $item = User::find($this->itemId);
             $this->name = $item->name;
-            $this->username = $item->username;
             $this->email = $item->email;
             $this->countryId = $item->country_id;
             $this->cityId = $item->city_id;
@@ -78,7 +76,6 @@ class UserUpdate extends Component
 
         $data = [
             'name' => $this->name,
-            'username' => $this->username,
             'email' => $this->email,
             'role_id' => $this->roleId,
             'country_id' => $this->countryId,
@@ -97,7 +94,7 @@ class UserUpdate extends Component
 
         User::where('id',$this->itemId)->update($data);
         $this->closeUpdateModel();
-        // $this->toast(__('user.update user'));
+        $this->toast(__('user.update user'));
         $this->emit('refreshParent');
 
     }

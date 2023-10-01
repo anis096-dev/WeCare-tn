@@ -1,11 +1,20 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}"
+    x-cloak
+    x-data="{darkMode: localStorage.getItem('dark') === 'true'}"
+    x-init="$watch('darkMode', val => localStorage.setItem('dark', val))"
+    x-bind:class="{'dark': darkMode}"
+>
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>{{ config('app.name', 'Laravel') }}</title>
+  
+        <!--=== fontaswesome ===-->
+        <link rel="stylesheet" href="{{asset('assets/fontaswesome/css/all.min.css')}}" />
+        <link rel="stylesheet" href="{{asset('assets/fontaswesome/css/fontawesome.min.css')}}" />
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -17,7 +26,7 @@
         <!-- Styles -->
         @livewireStyles
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-sans antialiased" dir="{{ app()->getLocale() === 'ar' ? 'rtl' : 'ltr' }}">
         <x-banner />
 
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900">

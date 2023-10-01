@@ -15,6 +15,19 @@ return [
     'last_seen'             => 'أخر ظهور',
     'profile_photo_url'     => 'الصورة',
 
+    'phone'                 => 'الهاتف',
+    'date_of_birth'         => 'تاريخ الولادة',
+    'gender'                => 'الجنس',
+    'male'                  => 'ذكر',
+    'female'                => 'انثى',
+    'occupation'            => 'المهنة',
+    'bio'                   => 'حول نفسك',
+    'present_adress'        => 'العنوان الحالي',
+    'permanent_adress'      => 'العنوان الرئيسي',
+    'CIN'                   => 'رقم البطاقة',
+    'file'                 => 'ملف الاثبات',
+    'status'                => 'مُثبَت/غير مُثبتْ',
+
     'select country'        => 'إختر الدولة',
     'select city'           => 'إختر المدينة',
 

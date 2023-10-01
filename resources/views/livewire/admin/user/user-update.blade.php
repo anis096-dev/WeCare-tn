@@ -6,7 +6,7 @@
 
         <form wire:submit.prevent="edit" autocomplete="off">
 
-            <x-slot name="content">
+            <x-slot name="content">            
                 <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
 
                     <div class="col-span-1 md:col-span-2 lg:col-span-4">
@@ -41,12 +41,6 @@
                                 <x-input-error for="profilePhotoPath" class="mt-2"/>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="col-span-1 md:col-span-2">
-                        <x-label for="username" value="{{ __('user.username') }}"/>
-                        <x-input wire:model.defer="username" type="text" class="mt-1 block w-full"/>
-                        <x-input-error for="username" class="mt-2"/>
                     </div>
 
                     <div class="col-span-1 md:col-span-2">

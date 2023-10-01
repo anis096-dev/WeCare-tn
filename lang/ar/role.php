@@ -6,7 +6,7 @@ return [
     'roles'                     => 'الأدوار',
     'name'                      => 'الأسم',
     'key'                       => 'المفتاح',
-    'color'                     => 'الون',
+    'color'                     => 'اللون',
 
     'permissions'               => 'الصلاحيات',
     'permission_count'          => 'عدد الصلاحيات',

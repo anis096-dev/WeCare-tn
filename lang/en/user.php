@@ -15,6 +15,19 @@ return [
     'last_seen'             => 'Last Seen',
     'profile_photo_url'     => 'Photo',
 
+    'phone'                 => 'Phone',
+    'date_of_birth'         => 'Date of Birth',
+    'gender'                => 'Gender',
+    'male'                  => 'Male',
+    'female'                => 'Female',
+    'occupation'            => 'Occupation',
+    'bio'                   => 'Bio',
+    'present_adress'        => 'Present Adress',
+    'permanent_adress'      => 'Permanent Adress',
+    'CIN'                   => 'CIN',
+    'file'                 => 'File',
+    'status'                => 'Status',
+
     'select country'        => 'Select Country',
     'select city'           => 'Select City',
 

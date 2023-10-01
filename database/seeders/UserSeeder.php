@@ -24,14 +24,24 @@ class UserSeeder extends Seeder
 
         User::firstOrCreate([
             'name'              => 'Admin',
-            'username'          => 'admin',
+            'phone'             => null,
+            'date_of_birth'     => null,
+            'gender'            => 'male',
+            'occupation'        => null,
+            'bio'               => null,
+            'present_adress'    => null,
+            'permanent_adress'  => null,
+            'CIN'               => null,
+            'file'             => null,
             'email'             => 'admin@admin.com',
             'email_verified_at' => now(),
+            'profile_photo_path'=> null,
             'password'          => Hash::make('password'), // password
             'remember_token'    => Str::random(10),
             'role_id'           => $role_id,
             'country_id'        => $country_id,
             'city_id'           => $city_id,
+            'specialty_id'      => NULL,
             'last_seen'         => null,
         ]);
     }

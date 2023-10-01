@@ -26,7 +26,7 @@
         </x-slot>
 
         <x-slot name="content">
-            {{ __('user.restore question') }}
+            {{ __('app.restore question') }}
         </x-slot>
 
         <x-slot name="footer">

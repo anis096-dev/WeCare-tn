@@ -31,6 +31,9 @@ class PermissionSeeder extends Seeder
             'table_name' => null,
         ]);
 
+        Permission::generateFor('contacts');
+        Permission::generateFor('treatments');
+        Permission::generateFor('specialties');
         Permission::generateFor('permissions');
         Permission::generateFor('roles');
         Permission::generateFor('countries');

@@ -39,12 +39,6 @@
                     </div>
 
                     <div class="col-span-1 md:col-span-2">
-                        <x-label for="username" value="{{ __('user.username') }}"/>
-                        <x-input wire:model.defer="username" type="text" class="mt-1 block w-full"/>
-                        <x-input-error for="username" class="mt-2"/>
-                    </div>
-
-                    <div class="col-span-1 md:col-span-2">
                         <x-label for="email" value="{{ __('user.email') }}"/>
                         <x-input wire:model.defer="email" type="text" class="mt-1 block w-full"/>
                         <x-input-error for="email" class="mt-2"/>

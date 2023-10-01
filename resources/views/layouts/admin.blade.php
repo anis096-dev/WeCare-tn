@@ -12,6 +12,9 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
+        <!--=== fontaswesome ===-->
+        <link rel="stylesheet" href="{{asset('assets/fontaswesome/css/all.min.css')}}" />
+        <link rel="stylesheet" href="{{asset('assets/fontaswesome/css/fontawesome.min.css')}}" />
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
@@ -26,8 +29,9 @@
 
         @livewireStyles
     </head>
-    <body class="font-sans antialiased"dir="{{ app()->getLocale() === 'ar' ? 'rtl' : 'ltr' }}">
+    <body class="font-sans antialiased" dir="{{ app()->getLocale() === 'ar' ? 'rtl' : 'ltr' }}">
         <x-banner />
+        <x-toast-alert />
 
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
             @include('layouts.nav.admin.navigation-menu')

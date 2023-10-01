@@ -69,7 +69,6 @@
                                 <x-select wire:model="orderBy" class="mt-1">
                                     <option value="id">{{ __('app.id') }}</option>
                                     <option value="name">{{ __('user.name') }}</option>
-                                    <option value="username">{{ __('user.username') }}</option>
                                     <option value="email">{{ __('user.email') }}</option>
                                     <option value="role_id">{{ __('user.role') }}</option>
                                     <option value="country_id">{{ __('user.country') }}</option>
@@ -117,11 +116,11 @@
                                 <th class="w-10 px-2 py-3 text-center">{{ __('app.id') }}</th>
                                 <th class="px-4 py-3">
                                     <span>{{ __('user.name') }}</span>
-                                    <span class="text-xx">/ {{ __('user.username') }}</span>
                                 </th>
                                 <th class="px-2 py-3 text-center">{{ __('user.email') }}</th>
                                 <th class="px-2 py-3 text-center">{{ __('user.role') }}</th>
                                 <th class="px-2 py-3 text-center">{{ __('user.country') }}</th>
+                                <th class="px-2 py-3 text-center">{{ __('user.status') }}</th>
                                 <th class="px-2 py-3 text-center">{{ $trashed ? __('app.deleted_at') : __('app.created_at') }}</th>
                                 <th class="px-2 py-3 text-center">{{ __('app.actions') }}</th>
                             </tr>
@@ -146,7 +145,6 @@
                                             </div>
                                             <div>
                                                 <span class="font-semibold">{{ $user->name }}</span>
-                                                <span class="block text-xs text-gray-600 lowercase dark:text-gray-400">{{ $user->username }}</span>
                                             </div>
                                         </div>
                                     </td>
@@ -171,6 +169,14 @@
                                             <span class="line-through">{{ $user->country()->withTrashed()->first()->name }}</span>
                                         @endif
                                     </td>
+
+                                    <td class="px-2 py-3 text-sm text-center">
+                                        <livewire:component.toggle-button
+                                            :model="$user"
+                                            field="status"
+                                            key="{{ $user->id }}"/>
+                                    </div>    
+
                                     <td class="px-2 py-3 text-sm text-center">
                                         {{ $trashed ? $user->deleted_at->diffForHumans() : $user->created_at->diffForHumans() }}
                                     </td>

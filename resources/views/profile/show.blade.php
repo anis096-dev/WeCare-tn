@@ -11,7 +11,13 @@
                 @livewire('profile.update-profile-information-form')
 
                 <x-section-border />
+
             @endif
+
+                <div class="mt-10 sm:mt-0">
+                    @livewire('admin.user.required-files')
+                </div>
+                <x-section-border />
 
             @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::updatePasswords()))
                 <div class="mt-10 sm:mt-0">

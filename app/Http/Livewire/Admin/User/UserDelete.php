@@ -10,7 +10,7 @@ use Laravel\Jetstream\InteractsWithBanner;
 
 class UserDelete extends Component
 {
-    // use ToastAlert;
+    use ToastAlert;
     use AuthorizesRequests;
 
 
@@ -38,7 +38,7 @@ class UserDelete extends Component
         $this->reset();
         $this->closeDeleteModel();
         $this->emit('refreshParent');
-        // $this->toast(__('user.delete user'));
+        $this->toast(__('user.delete user'));
 
     }
 
@@ -58,7 +58,7 @@ class UserDelete extends Component
         $this->reset();
         $this->closeRestoreModel();
         $this->emit('refreshParent');
-        // $this->toast(__('user.restore user'));
+        $this->toast(__('user.restore user'));
     }
 
     public function showForceDeleteModel($itemid){
@@ -77,7 +77,7 @@ class UserDelete extends Component
         $this->reset();
         $this->closeForceDeleteModel();
         $this->emit('refreshParent');
-        // $this->toast(__('user.force delete user'));
+        $this->toast(__('user.force delete user'));
     }
 
 

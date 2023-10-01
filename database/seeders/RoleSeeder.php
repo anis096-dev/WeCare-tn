@@ -23,13 +23,13 @@ class RoleSeeder extends Seeder
         Role::firstOrCreate([
             'name' => 'Admin',
             'key' => 'admin',
-            'color' => 'bg-orange-600 text-white',
+            'color' => 'bg-orange-400 text-black',
         ]);
 
         Role::firstOrCreate([
             'name' => 'Moderator',
             'key' => 'moderator',
-            'color' => 'bg-green-600 text-white',
+            'color' => 'bg-green-500 text-white',
         ]);
 
         Role::firstOrCreate([
@@ -41,7 +41,7 @@ class RoleSeeder extends Seeder
         Role::firstOrCreate([
             'name' => 'Banned',
             'key' => 'banned',
-            'color' => 'bg-gray-600 text-white',
+            'color' => 'bg-gray-500 text-white',
         ]);
 
         $permission_administrator = Permission::where('key','!=','banned')->pluck('id')->toArray();

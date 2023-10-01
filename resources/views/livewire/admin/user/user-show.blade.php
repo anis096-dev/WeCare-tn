@@ -2,7 +2,7 @@
     @if($showItemModel)
         <x-dialog-modal wire:model="showItemModel">
         <x-slot name="title">
-            {{ __('app.show') }} {{ __('user.user') }}
+            {{ __('app.show') }} {{ __('item.item') }}
         </x-slot>
 
         <x-slot name="content">
@@ -21,32 +21,23 @@
                     </div>
                 </div>
 
-
                 <div class="col-span-1 md:col-span-2 lg:col-span-3">
                     <div class="relative p-3 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-lg md:rounded-lg sm:rounded-sm">
-                        <div class="absolute -top-4 right-3 px-3 pt-1 text-xs font-semibold bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-t-lg">{{ __('user.name') }}</div>
+                        <div class="absolute -top-4 right-3 px-3 pt-1 text-xs font-semibold bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-t-lg">{{ __('item.name') }}</div>
                         <div class=" text-sm font-bold z-10">{{ $item->name }}</div>
                     </div>
                 </div>
 
-
-                <div class="col-span-1 md:col-span-2 lg:col-span-2">
-                    <div class="relative p-3 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-lg md:rounded-lg sm:rounded-sm">
-                        <div class="absolute -top-4 right-3 px-3 pt-1 text-xs font-semibold bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-t-lg">{{ __('user.username') }}</div>
-                        <div class=" text-sm font-bold z-10">{{ $item->username }}</div>
-                    </div>
-                </div>
-
                 <div class="col-span-1 md:col-span-2 lg:col-span-3">
                     <div class="relative p-3 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-lg md:rounded-lg sm:rounded-sm">
-                        <div class="absolute -top-4 right-3 px-3 pt-1 text-xs font-semibold bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-t-lg">{{ __('user.email') }}</div>
+                        <div class="absolute -top-4 right-3 px-3 pt-1 text-xs font-semibold bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-t-lg">{{ __('item.email') }}</div>
                         <div class=" text-sm font-bold z-10">{{ $item->email }}</div>
                     </div>
                 </div>
 
                 <div class="col-span-1 md:col-span-2 lg:col-span-2">
                     <div class="relative  p-3 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-lg md:rounded-lg sm:rounded-sm">
-                        <div class="absolute -top-4 right-3 px-3 pt-1 text-xs font-semibold bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-t-lg">{{ __('user.role') }}</div>
+                        <div class="absolute -top-4 right-3 px-3 pt-1 text-xs font-semibold bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-t-lg">{{ __('item.role') }}</div>
                         <div class="flex w-full ">
                             <div class="px-2 py-1 z-10 text-xs mx-auto font-semibold leading-tight rounded-full drop-shadow-md {{ $item->role->color }}">
                                 {{ $item->role->name }}
@@ -57,14 +48,14 @@
 
                 <div class="col-span-1 md:col-span-2 lg:col-span-3">
                     <div class="relative p-3 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-lg md:rounded-lg sm:rounded-sm">
-                        <div class="absolute -top-4 right-3 px-3 pt-1 text-xs font-semibold bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-t-lg">{{ __('user.country') }}</div>
+                        <div class="absolute -top-4 right-3 px-3 pt-1 text-xs font-semibold bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-t-lg">{{ __('item.country') }}</div>
                         <div class=" text-sm font-bold z-10">{{ $item->country->name }}</div>
                     </div>
                 </div>
 
                 <div class="col-span-1 md:col-span-2 lg:col-span-2">
                     <div class="relative p-3 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-lg md:rounded-lg sm:rounded-sm">
-                        <div class="absolute -top-4 right-3 px-3 pt-1 text-xs font-semibold bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-t-lg">{{ __('user.city') }}</div>
+                        <div class="absolute -top-4 right-3 px-3 pt-1 text-xs font-semibold bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-t-lg">{{ __('item.city') }}</div>
                         <div class=" text-sm font-bold z-10">{{ $item->city->name }}</div>
                     </div>
                 </div>
@@ -84,8 +75,8 @@
                         </div>
                     </div>
                 @endif
-
             </div>
+            <iframe class="flex mt-2 w-full h-screen" src="{{ asset('storage/'. $item->file)}}" frameborder="0"></iframe>
         </x-slot>
 
         <x-slot name="footer">

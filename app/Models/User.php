@@ -12,7 +12,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens;
     use HasFactory;
@@ -28,12 +28,23 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'phone',
+        'phone_verified',
+        'date_of_birth',
+        'gender',
+        'occupation',
+        'bio',
+        'present_adress',
+        'permanent_adress',
+        'CIN',
+        'file',
+        'status',
         'email',
         'password',
-        'username',
         'role_id',
         'country_id',
         'city_id',
+        'specialty_id',
         'last_seen',
         'profile_photo_path'
     ];
@@ -98,10 +109,14 @@ class User extends Authenticatable
         return $this->belongsTo(City::class);
     }
 
+    public function specialty()
+    {
+        return $this->belongsTo(Specialty::class);
+    }
+
     public function scopeSearch($query, $term){
         $query->where(function ($query) use ($term){
-            $query->where('username','like', "%$term%")
-                ->orWhere('name','like', "%$term%")
+            $query->Where('name','like', "%$term%")
                 ->orWhere('email','like', "%$term%");
         });
     }
