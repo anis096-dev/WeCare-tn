@@ -10,7 +10,7 @@ class Country extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ['name' , 'slug' , 'ios3'];
+    protected $fillable = ['name' , 'slug' , 'ios3', 'country_code'];
 
     protected $dates = [
         'deleted_at'

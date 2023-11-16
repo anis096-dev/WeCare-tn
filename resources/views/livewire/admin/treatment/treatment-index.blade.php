@@ -125,12 +125,12 @@
                                     </td>
                                     <td class="px-2 py-3 text-sm text-center capitalize">
                                         <span class="bg-red-500 font-bold text-white rounded-md p-1">
-                                            {{ $treatment->price_day }}dt
+                                            {{ $treatment->price_day }}{{ $treatment->currency }}
                                         </span>
                                     </td>
                                     <td class="px-2 py-3 text-sm text-center capitalize">
                                         <span class="bg-green-500 font-bold text-white rounded-md p-1">
-                                            {{ $treatment->price_night_weekend }}dt
+                                            {{ $treatment->price_night_weekend }}{{ $treatment->currency }}
                                         </span>
                                     </td>
                                     <td class="px-2 py-3 text-sm text-center">

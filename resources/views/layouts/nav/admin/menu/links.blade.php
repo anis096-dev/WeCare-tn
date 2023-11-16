@@ -33,3 +33,8 @@
         {{ __('contact.contacts') }}
     </x-nav-link>
 </div>
+<div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+    <x-nav-link href="{{ route('admin.appointment.index') }}" :active="request()->routeIs('admin.appointment.index')">
+        {{ __('appointment.appointments') }}
+    </x-nav-link>
+</div>

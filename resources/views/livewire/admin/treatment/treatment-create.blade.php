@@ -16,6 +16,13 @@
                     </div>
 
                     <div class="col-span-4">
+                        <x-label for="currency" value="{{ __('treatment.currency') }}"/>
+                        <x-input wire:model.defer="currency" id="currency" type="text" class="mt-1 block w-full" />
+                        <x-input-error for="currency" class="mt-2"/>
+                    </div>
+
+
+                    <div class="col-span-4">
                         <x-label for="price_day" value="{{ __('treatment.price_day') }}"/>
                         <x-input wire:model.defer="price_day" id="price_day" type="number" class="mt-1 block w-full" />
                         <x-input-error for="price_day" class="mt-2"/>

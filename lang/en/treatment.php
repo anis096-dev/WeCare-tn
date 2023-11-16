@@ -5,6 +5,7 @@ return [
     'treatment'                 => 'Treatment',
     'treatments'               => 'Treatments',
     'name'                      => 'Name',
+    'currency'                      => 'Currency',
     'price_day'                 => 'Price per Day',
     'price_night_weekend'       => 'Price per Night-Weekend',
     'specialty'                 => 'Specialty',

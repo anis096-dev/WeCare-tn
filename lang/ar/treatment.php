@@ -5,6 +5,7 @@ return [
     'treatment'                 => 'علاج',
     'treatments'               => 'العلاجات',
     'name'                      => 'الأسم',
+    'currency'                      => 'عملة البلد',
     'price_day'                 => 'ثمن_النهار',
     'price_night_weekend'       => 'ثمن_اليل_العطلة',
     'specialty'                 => 'تخصّص',

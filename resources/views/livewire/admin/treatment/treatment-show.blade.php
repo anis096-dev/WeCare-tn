@@ -27,7 +27,7 @@
                         <div class="absolute -top-4 right-3 px-3 pt-1 text-xs font-semibold bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-t-lg">{{ __('treatment.price_day') }}</div>
                         <div class=" text-sm font-bold z-10">
                             <span class="bg-red-500 font-bold text-white rounded-md p-1">
-                                {{ $item->price_day }}dt
+                                {{ $item->price_day }}{{ $item->currency }}
                             </span>
                         </div>
                     </div>
@@ -38,7 +38,7 @@
                         <div class="absolute -top-4 right-3 px-3 pt-1 text-xs font-semibold bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-t-lg">{{ __('treatment.price_night_weekend') }}</div>
                         <div class=" text-sm font-bold z-10">
                             <span class="bg-green-500 font-bold text-white rounded-md p-1">
-                                {{ $item->price_night_weekend }}dt
+                                {{ $item->price_night_weekend }}{{ $item->currency }}
                             </span>
                         </div>
                     </div>

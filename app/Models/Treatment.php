@@ -10,7 +10,7 @@ class Treatment extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ['name' , 'price_day', 'price_night_weekend', 'specialty_id'];
+    protected $fillable = ['name' , 'currency', 'price_day', 'price_night_weekend', 'specialty_id'];
 
     protected $dates = [
         'deleted_at'
@@ -26,5 +26,9 @@ class Treatment extends Model
     public function specialty()
     {
         return $this->belongsTo(Specialty::class);
+    }
+
+    public function appointments(){
+        return $this->hasMany(Appointment::class);
     }
 }

@@ -33,3 +33,8 @@
         {{ __('contact.contacts') }}
     </x-responsive-nav-link>
 </div>
+<div class="pt-2 pb-3 space-y-1">
+    <x-responsive-nav-link href="{{ route('admin.appointment.index') }}" :active="request()->routeIs('admin.appointment.index')">
+        {{ __('appointment.appointments') }}
+    </x-responsive-nav-link>
+</div>

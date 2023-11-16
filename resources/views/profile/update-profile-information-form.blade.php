@@ -124,19 +124,7 @@
         </div>
 
         <!-- Phone -->
-        @if(auth()->user()->phone_verified == false)
-        <div class="col-span-6 sm:col-span-4 relative flex w-full flex-wrap items-stretch mb-3">
-            <x-label for="phone" value="{{ __('user.phone') }}" />
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-red-500 mr-1 rtl:ml-1">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m0-10.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.75c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.249-8.25-3.286zm0 13.036h.008v.008H12v-.008z" />
-            </svg>
-            <span class="dark:text-white z-10 h-full leading-snug font-normal absolute text-centerbg-transparent rounded text-base items-center justify-center w-8 pl-3 py-9 rtl:pr-3">
-                <i class="fa-solid fa-phone"></i>
-            </span>
-            <x-input id="phone" type="text" class="mt-1 relative block w-full pl-10 rtl:pr-10" wire:model.defer="state.phone" required autocomplete="phone"/>
-            <x-input-error for="phone" class="mt-2" />
-        </div> 
-        @else
+        @if(auth()->user()->phone_verified == true)
         <div class="col-span-6 sm:col-span-4 relative flex w-full flex-wrap items-stretch mb-3">
             <x-label for="phone" value="{{ __('user.phone') }}" />
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-green-500 mr-1 rtl:ml-1">
@@ -149,7 +137,7 @@
             <button type="button" class="mt-1 underline text-sm text-gray-600 hover:text-gray-900 rounded-md">
                 {{ __('Click to verify a new phone number.') }}
             </button>
-        </div> 
+        </div>
         @endif
 
          <!-- Occupation -->

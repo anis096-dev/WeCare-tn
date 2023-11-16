@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name')->unique();
             $table->string('slug')->unique()->index();
             $table->string('iso3')->unique();
+            $table->string('country_code')->unique();
             $table->softDeletes();
             $table->timestamps();
         });

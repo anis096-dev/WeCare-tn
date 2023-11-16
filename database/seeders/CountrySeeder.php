@@ -16,7 +16,8 @@ class CountrySeeder extends Seeder
         Country::firstOrCreate([
             'name' => 'Tunisia',
             'slug' => 'TN',
-            'iso3' => 'TNU'
+            'iso3' => 'TNU',
+            'country_code' => '+216'
         ]);
     }
 }

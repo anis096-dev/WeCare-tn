@@ -35,4 +35,8 @@ class Specialty extends Model
     public function treatment(){
         return $this->hasMany(Treatment::class);
     }
+
+    public function appointments(){
+        return $this->belongsTo(Appointment::class);
+    }
 }

@@ -7,6 +7,13 @@
 
     <div>
         <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
+            @if(auth()->user()->phone_verified == false)
+                <div class="mt-10 sm:mt-0 mb-2 sm:flex sm:place-content-center">
+                    @livewire('verify-api')
+                </div>
+                <x-section-border />
+            @endif
+
             @if (Laravel\Fortify\Features::canUpdateProfileInformation())
                 @livewire('profile.update-profile-information-form')
 
@@ -15,7 +22,7 @@
             @endif
 
                 <div class="mt-10 sm:mt-0">
-                    @livewire('admin.user.required-files')
+                @livewire('admin.user.required-files')
                 </div>
                 <x-section-border />
 

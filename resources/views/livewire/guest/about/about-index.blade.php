@@ -49,6 +49,7 @@
                 <div>
                 <div class="text-indigo-500 md:text-lg font-bold text-center sm:text-left">Anis Awadi</div>
                 <p class="text-gray-500 text-sm md:text-base text-center sm:text-left">Founder / CEO</p>
+                <p class="text-gray-500 text-sm md:text-base text-center sm:text-left">E-health Specialist</p>
                 <p class="text-gray-500 text-sm md:text-base text-center sm:text-left">Developer</p>
                 </div>
             </div>
