@@ -14,12 +14,12 @@
     </x-nav-link>
 </div>
 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-    <x-nav-link href="{{ route('admin.role.index') }}" :active="request()->routeIs('admin.role.index')">
+    <x-nav-link href="{{ route('pricing.index') }}" :active="request()->routeIs('pricing.index')">
         {{ __('Pricing') }}
     </x-nav-link>
 </div>
 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-    <x-nav-link href="{{ route('admin.specialty.index') }}" :active="request()->routeIs('admin.specialty.index')">
+    <x-nav-link href="{{ route('faqs.index') }}" :active="request()->routeIs('faqs.index')">
         {{ __('FaQs') }}
     </x-nav-link>
 </div>

@@ -114,6 +114,11 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->belongsTo(Specialty::class);
     }
 
+    public function Appointment()
+    {
+        return $this->hasMany(Appointment::class);
+    }
+
     public function scopeSearch($query, $term){
         $query->where(function ($query) use ($term){
             $query->Where('name','like', "%$term%")

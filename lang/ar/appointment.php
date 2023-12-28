@@ -5,7 +5,7 @@ return [
     'appointment'                => 'موعد',
     'appointments'               => 'المواعيد',
     'name'                       => 'الأسم',
-    'date_of_birth'              => 'تاريخ الولادة',
+    'age'                        => 'العمر',
     'gender'                     => 'الجنس',
     'adress'                     => 'العنوان',
     'Location_of_care'           => 'مكان الموعد',
@@ -18,9 +18,11 @@ return [
     'end_date'                   => 'تاريخ الانتهاء',
     'duration'                   => 'مدة العلاج',
     'availability'               => 'التوفر',
+    'country'                    => 'الدولة',
     'city'                       => 'المدينة',
     'specialty'                  => 'التخصص',
-    'treatment'                  => 'العلاج',
+    'treatments'                  => 'العلاجات',
+    'No prescription file found!!' => 'لم يتم العثور على ملف وصفة طبية!!',
 
 
     'create appointment'         => 'تم إضافة موعد بنجاح',

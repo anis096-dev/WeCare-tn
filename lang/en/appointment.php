@@ -5,7 +5,7 @@ return [
     'appointment'                => 'Appointment',
     'appointments'               => 'Appointments',
     'name'                       => 'Name',
-    'date_of_birth'              => 'Date of Birth',
+    'age'                        => 'Age',
     'gender'                     => 'Gender',
     'adress'                     => 'Adress',
     'Location_of_care'           => 'Location of Care',
@@ -18,9 +18,11 @@ return [
     'end_date'                   => 'End Date',
     'duration'                   => 'Duration',
     'availability'               => 'Availability',
+    'country'                    => 'Country',
     'city'                       => 'City',
     'specialty'                  => 'Specialty',
-    'treatment'                  => 'Treatment',
+    'treatments'                  => 'Treatments',
+    'No prescription file found!!' => 'No prescription file found!!',
 
 
     'create appointment'         => 'Create Appointment :NAME Successfully',

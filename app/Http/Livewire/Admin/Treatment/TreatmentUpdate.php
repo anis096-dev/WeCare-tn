@@ -12,7 +12,7 @@ class TreatmentUpdate extends Component
 
     public $specialties;
     public $itemId;
-    public $name, $currency, $price_day, $price_night_weekend, $specialtyId;
+    public $name, $specialtyId;
 
 
     protected $listeners = ['showUpdateModel'];
@@ -23,9 +23,6 @@ class TreatmentUpdate extends Component
     {
         return [
             'name' => ['required', 'string', 'max:50', 'min:5'],
-            'currency' => ['required', 'string', 'max:3'],
-            'price_day' => ['required', 'integer', 'min:10', 'max:300'],
-            'price_night_weekend' => ['required', 'integer', 'min:25', 'max:500'],
             'specialtyId' => 'required|integer|exists:App\Models\Specialty,id',
         ];
     }
@@ -41,10 +38,7 @@ class TreatmentUpdate extends Component
         if (!empty($this->itemId)){
             $item = Treatment::find($this->itemId);
             $this->name = $item->name;
-            $this->currency = $item->currency;
             $this->specialtyId = $item->specialty_id;
-            $this->price_day = $item->price_day;
-            $this->price_night_weekend = $item->price_night_weekend;
         }
     }
 
@@ -59,10 +53,7 @@ class TreatmentUpdate extends Component
         $this->validate();
 
         $data = [
-            'name' => $this->name,
-            'currency' => $this->currency,
-            'price_day' => $this->price_day,
-            'price_night_weekend' => $this->price_night_weekend,
+            'name' => $this->name,            
             'specialty_id' => $this->specialtyId,
         ];
 

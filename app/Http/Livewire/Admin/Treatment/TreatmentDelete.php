@@ -70,7 +70,7 @@ class TreatmentDelete extends Component
     }
 
     public function forceDelete(){
-        $treatment = treatment::onlyTrashed()->findOrFail($this->itemId);
+        $treatment = Treatment::onlyTrashed()->findOrFail($this->itemId);
         $this->authorize('forceDelete', $treatment);
         $treatment->forceDelete();
         $this->reset();

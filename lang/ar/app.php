@@ -43,5 +43,4 @@ return [
     'general'           => 'عام',
     'restore question'  => 'استعادة',
 
-
 ];

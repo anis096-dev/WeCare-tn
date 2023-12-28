@@ -14,12 +14,12 @@
     </x-responsive-nav-link>
 </div>
 <div class="pt-2 pb-3 space-y-1">
-    <x-responsive-nav-link class="rtl:text-right" href="{{ route('admin.role.index') }}" :active="request()->routeIs('admin.role.index')">
+    <x-responsive-nav-link class="rtl:text-right" href="{{ route('pricing.index') }}" :active="request()->routeIs('pricing.index')">
         {{ __('Pricing') }}
     </x-responsive-nav-link>
 </div>
 <div class="pt-2 pb-3 space-y-1">
-    <x-responsive-nav-link class="rtl:text-right" href="{{ route('admin.specialty.index') }}" :active="request()->routeIs('admin.specialty.index')">
+    <x-responsive-nav-link class="rtl:text-right" href="{{ route('faqs.index') }}" :active="request()->routeIs('faqs.index')">
         {{ __('FaQs') }}
     </x-responsive-nav-link>
 </div>

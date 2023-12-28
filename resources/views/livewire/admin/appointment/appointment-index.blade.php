@@ -53,14 +53,14 @@
                         <table class="w-full whitespace-no-wrap">
                             <thead>
                             <tr class="text-sm font-semibold text-gray-500 border-y ltr:text-left rtl:text-right dark:border-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-gray-700/30">
-                                <th class="w-10 px-2 py-3 text-center">{{ __('app.id') }}</th>
+                                <th class="w-10 px-2 py-3 text-center">{{ __('appointment_id') }}</th>
                                 <th class="px-2 py-3 text-center">{{ __('appointment.name') }}</th>
-                                <th class="px-2 py-3 text-center">{{ __('appointment.email') }}</th>
                                 <th class="px-2 py-3 text-center">{{ __('appointment.phone') }}</th>
                                 <th class="px-2 py-3 text-center">{{ __('appointment.start_date') }}</th>
+                                <th class="px-2 py-3 text-center">{{ __('appointment.country') }}</th>
                                 <th class="px-2 py-3 text-center">{{ __('appointment.city') }}</th>
                                 <th class="px-2 py-3 text-center">{{ __('appointment.specialty') }}</th>
-                                <th class="px-2 py-3 text-center">{{ __('appointment.treatment') }}</th>
+                                <th class="px-2 py-3 text-center">{{ __('appointment.treatments') }}</th>
                                 <th class="px-2 py-3 text-center">{{ $trashed ? __('app.deleted_at') : __('app.created_at') }}</th>
                                 <th class="px-2 py-3 text-center">{{ __('app.actions') }}</th>
                             </tr>
@@ -69,13 +69,10 @@
                             @forelse($appointments as $appointment)
                                 <tr class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-800 hover:dark:text-gray-200 hover:bg-gray-100 hover:dark:bg-gray-700">
                                     <td class="px-2 py-3 text-center text-xx">
-                                        {{ $appointment->id }}
+                                        {{ $appointment->appointment_id }}
                                     </td>
                                     <td class="px-2 py-3 text-sm text-center uppercase">
                                         {{ $appointment->first_name }} {{ $appointment->last_name }}
-                                    </td>
-                                    <td class="px-2 py-3 text-sm text-center capitalize">
-                                        {{ $appointment->email }}
                                     </td>
                                     <td class="px-2 py-3 text-sm text-center capitalize">
                                         {{ $appointment->phone }}
@@ -84,13 +81,22 @@
                                         {{ $appointment->start_date }}
                                     </td>
                                     <td class="px-2 py-3 text-sm text-center capitalize">
+                                        {{ $appointment->country->name }}
+                                    </td>
+                                    <td class="px-2 py-3 text-sm text-center capitalize">
                                         {{ $appointment->city->name }}
                                     </td>
                                     <td class="px-2 py-3 text-sm text-center capitalize">
                                         {{ $appointment->specialty->name }}
                                     </td>
+                                    @php
+                                        $subtreatments_Ids = json_decode($appointment->subtreatments);
+                                        $subtreatments = \App\Models\SubTreatment::whereIn('id', $subtreatments_Ids)->get();
+                                    @endphp
                                     <td class="px-2 py-3 text-sm text-center capitalize">
-                                        {{ $appointment->treatment->name }}
+                                        @foreach ($subtreatments as $item)
+                                        <li class="text-left">{{$item->name}}</li>
+                                        @endforeach
                                     </td>
                                     <td class="px-2 py-3 text-sm text-center">
                                         {{ $trashed ? $appointment->deleted_at->diffForHumans() : $appointment->created_at->diffForHumans() }}
@@ -115,6 +121,13 @@
                                                 @endcan
 
                                             @else
+                                                @can('update', $appointment)
+                                                    <x-button2 wire:click="selectedItem('update',{{ $appointment->id }})"
+                                                                class="px-2">
+                                                        <x-svg.svg-update class="w-5 h-5"/>
+                                                    </x-button2>
+                                                @endcan
+
                                                 @can('view', $appointment)
                                                     <x-button2 wire:click="selectedItem('show',{{ $appointment->id }})"
                                                                   class="px-2">
@@ -157,7 +170,8 @@
             </div>
         </div>
     </div>
-
+    
+    <livewire:admin.appointment.appointment-update :specialties="$specialties"/>
     <livewire:admin.appointment.appointment-show/>
     <livewire:admin.appointment.appointment-delete/>
 

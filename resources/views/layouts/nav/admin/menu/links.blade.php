@@ -29,6 +29,11 @@
     </x-nav-link>
 </div>
 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+    <x-nav-link href="{{ route('admin.subtreatment.index') }}" :active="request()->routeIs('admin.subtreatment.index')">
+        {{ __('subtreatment.subtreatments') }}
+    </x-nav-link>
+</div>
+<div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
     <x-nav-link href="{{ route('admin.contact.index') }}" :active="request()->routeIs('admin.contact.index')">
         {{ __('contact.contacts') }}
     </x-nav-link>

@@ -33,6 +33,7 @@ class PermissionSeeder extends Seeder
 
         Permission::generateFor('appointments');
         Permission::generateFor('contacts');
+        Permission::generateFor('subtreatments');
         Permission::generateFor('treatments');
         Permission::generateFor('specialties');
         Permission::generateFor('permissions');

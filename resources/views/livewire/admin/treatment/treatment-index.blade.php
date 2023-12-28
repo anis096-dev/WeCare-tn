@@ -101,8 +101,6 @@
                                 <th class="w-10 px-2 py-3 text-center">{{ __('app.id') }}</th>
                                 <th class="px-2 py-3 text-center">{{ __('treatment.name') }}</th>
                                 <th class="px-2 py-3 text-center">{{ __('treatment.specialty') }}</th>
-                                <th class="px-2 py-3 text-center">{{ __('treatment.price_day') }}</th>
-                                <th class="px-2 py-3 text-center">{{ __('treatment.price_night_weekend') }}</th>
                                 <th class="px-2 py-3 text-center">{{ $trashed ? __('app.deleted_at') : __('app.created_at') }}</th>
                                 <th class="px-2 py-3 text-center">{{ __('app.actions') }}</th>
                             </tr>
@@ -122,16 +120,6 @@
                                         @elseif($treatment->specialty_id)
                                             <span class="line-through">{{ $treatment->specialty()->withTrashed()->first()->name }}</span>
                                         @endif
-                                    </td>
-                                    <td class="px-2 py-3 text-sm text-center capitalize">
-                                        <span class="bg-red-500 font-bold text-white rounded-md p-1">
-                                            {{ $treatment->price_day }}{{ $treatment->currency }}
-                                        </span>
-                                    </td>
-                                    <td class="px-2 py-3 text-sm text-center capitalize">
-                                        <span class="bg-green-500 font-bold text-white rounded-md p-1">
-                                            {{ $treatment->price_night_weekend }}{{ $treatment->currency }}
-                                        </span>
                                     </td>
                                     <td class="px-2 py-3 text-sm text-center">
                                         {{ $trashed ? $treatment->deleted_at->diffForHumans() : $treatment->created_at->diffForHumans() }}

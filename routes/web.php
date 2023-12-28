@@ -7,17 +7,21 @@ use App\Models\Specialty;
 use App\Models\Treatment;
 use App\Models\Permission;
 use App\Models\Appointment;
+use App\Models\subTreatment;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Admin\Role\RoleIndex;
 use App\Http\Livewire\Admin\User\UserIndex;
+use App\Http\Livewire\Guest\Faqs\FaqsIndex;
 use App\Http\Livewire\Admin\Admin\AdminIndex;
 use App\Http\Livewire\Guest\About\AboutIndex;
 use App\Http\Livewire\Admin\Contact\ContactIndex;
+use App\Http\Livewire\Guest\Pricing\PricingIndex;
 use App\Http\Livewire\Guest\Contact\ContactCreate;
 use App\Http\Livewire\Admin\Specialty\SpecialtyIndex;
 use App\Http\Livewire\Admin\Treatment\TreatmentIndex;
 use App\Http\Livewire\Admin\Permission\PermissionIndex;
 use App\Http\Livewire\Admin\Appointment\AppointmentIndex;
+use App\Http\Livewire\Admin\SubTreatment\SubTreatmentIndex;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,7 +40,8 @@ require_once __DIR__ . '/fortify.php';
 Route::get('/', function () { return view('welcome');})->name('home');
 Route::get('/contact-us',ContactCreate::class)->name('contact.create');
 Route::get('/about-us',AboutIndex::class)->name('about.index');
-
+Route::get('/pricing',PricingIndex::class)->name('pricing.index');
+Route::get('/faqs',FaqsIndex::class)->name('faqs.index');
 
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified', 'registration_completed'])->group(function () {
@@ -50,6 +55,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->as('admin.')->group(funct
     Route::get('/permissions',PermissionIndex::class)->name('permission.index')->can('viewAny', Permission::class);
     Route::get('/specialties',SpecialtyIndex::class)->name('specialty.index')->can('viewAny', Specialty::class);
     Route::get('/treatments',TreatmentIndex::class)->name('treatment.index')->can('viewAny', Treatment::class);
+    Route::get('/subtreatments',SubTreatmentIndex::class)->name('subtreatment.index')->can('viewAny', subTreatment::class);
     Route::get('/contacts',ContactIndex::class)->name('contact.index')->can('viewAny', Contact::class);
     Route::get('/appointments',AppointmentIndex::class)->name('appointment.index')->can('viewAny', Appointment::class);
 });

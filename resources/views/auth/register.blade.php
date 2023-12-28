@@ -15,15 +15,12 @@
             </div>
 
             <div class="grid grid-cols-4 mt-4">
-                @php
-                    $specialties = \App\Models\Specialty::all();
-                @endphp
                 <div class=" col-span-2 ltr:mr-1 rtl:ml-1">
                     <x-label class="mb-2" for="specialty_id" value="{{ __('specialty.specialty') }}"/>
                     <x-select name="specialty_id" id="specialty_id" class="block mt-1 w-full">
                         <option value="" readonly="true" hidden="true" selected>
                         {{ __('specialty.select specialty') }}</option>
-                        @forelse($specialties as $key => $value)
+                        @forelse(App\Models\Specialty::All() as $key => $value)
                         <option value="{{ $value->id }}">{{ __($value->name) }}</option>
                         @empty
                         @endforelse

@@ -15,9 +15,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('specialty_id')->nullable();
             $table->string('name')->unique();
-            $table->string('currency');
-            $table->string('price_day');
-            $table->string('price_night_weekend');
             $table->softDeletes();
             $table->timestamps();
         });

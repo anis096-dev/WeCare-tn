@@ -50,6 +50,7 @@ class AppointmentDelete extends Component
         $this->showRestoreModel = false;
         $this->reset();
     }
+    
     public function restore(){
         $appointment = Appointment::onlyTrashed()->findOrFail($this->itemId);
         $this->authorize('restore', $appointment);

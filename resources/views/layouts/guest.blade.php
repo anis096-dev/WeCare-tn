@@ -54,4 +54,5 @@
 
         @livewireScripts
     </body>
+    @include('livewire.footer')
 </html>

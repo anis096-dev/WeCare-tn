@@ -11,7 +11,7 @@
             <a href="{{ route('register') }}" class="ltr:ml-4 rtl:mr-4 text-sm font-semibold text-gray-600 hover:text-gray-900">{{__('Join us now!')}}</a>
         @endif
     @endauth
-    <button class="rtl:mr-4 ltr:ml-4 -mt-3.5 p-2 font-bold bg-blue-50 border-4 border-blue-400 rounded-full hover:bg-blue-200 hover:border-blue-600" >{{__('Booking now!')}}</button>
+    <a href="#rdv" class="rtl:mr-4 ltr:ml-4 -mt-3.5 p-2 font-bold bg-blue-50 border-4 border-blue-400 rounded-full hover:bg-blue-200 hover:border-blue-600" >{{__('Booking now!')}}</a>
     </div>
     @endif
     <!-- Primary Navigation Menu -->

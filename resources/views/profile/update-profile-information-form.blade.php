@@ -83,12 +83,12 @@
             <option value="{{ $country->id }}">{{ __($country->name) }}</option>
             @endforeach
             </x-select>
-            <x-input-error for="cityId" class="mt-2"/>
+            <x-input-error for="country_id" class="mt-2"/>
         </div>
         
         <!-- City -->
         @php
-            $cities = \App\Models\City::where('country_id', $country->id)->get();
+            $cities = \App\Models\City::all();
         @endphp
         <div class="col-span-6 sm:col-span-4 relative flex w-full flex-wrap items-stretch mb-3">
             <x-label for="city_id" value="{{ __('city.city') }}"/>
@@ -100,7 +100,7 @@
                 <option value="{{ $city->id }}">{{ __($city->name) }}</option>
                 @endforeach
             </x-select>
-            <x-input-error for="cityId" class="mt-2"/>
+            <x-input-error for="city_id" class="mt-2"/>
         </div>
 
          <!-- Present Adress -->

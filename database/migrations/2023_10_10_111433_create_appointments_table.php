@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('appointments', function (Blueprint $table) {
             $table->id();
+            $table->string('appointment_id')->nullable();
             $table->string('first_name');
             $table->string('last_name');
-            $table->date('date_of_birth')->nullable();
+            $table->string('age')->nullable();
             $table->enum('gender', ['male', 'female']);
             $table->string('adress')->nullable();
             $table->string('Location_of_care')->nullable();
@@ -24,13 +25,13 @@ return new class extends Migration
             $table->string('number_of_visits')->nullable();
             $table->string('prescription')->nullable();
             $table->string('prescription_file')->nullable();
-            $table->date('start_date')->nullable();
-            $table->date('end_date')->nullable();
+            $table->dateTime('start_date')->nullable();
             $table->string('duration')->nullable();
-            $table->string('availability')->nullable();
+            $table->string('subtreatments')->nullable();
+            $table->foreignId('country_id')->nullable()->constrained('countries')->cascadeOnUpdate()->nullOnDelete();
             $table->foreignId('city_id')->nullable()->constrained('cities')->cascadeOnUpdate()->nullOnDelete();
             $table->foreignId('specialty_id')->nullable()->constrained('specialties')->cascadeOnUpdate()->nullOnDelete();
-            $table->foreignId('treatment_id')->nullable()->constrained('treatments')->cascadeOnUpdate()->nullOnDelete();
+            $table->foreignId('user_id')->nullable()->constrained('users')->cascadeOnUpdate()->nullOnDelete();
             $table->softDeletes();
             $table->timestamps();
         });

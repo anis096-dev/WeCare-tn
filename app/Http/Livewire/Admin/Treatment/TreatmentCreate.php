@@ -12,7 +12,7 @@ class TreatmentCreate extends Component
 
     public $specialties;
 
-    public $name, $currency, $price_day, $price_night_weekend, $specialtyId;
+    public $name, $specialtyId;
 
 
     protected $listeners = ['showCreateModel'];
@@ -23,9 +23,6 @@ class TreatmentCreate extends Component
     {
         return [
             'name' => ['required', 'string', 'max:50', 'min:5'],
-            'currency' => ['required', 'string', 'max:3'],
-            'price_day' => ['required', 'integer', 'min:10', 'max:300'],
-            'price_night_weekend' => ['required', 'integer', 'min:25', 'max:500'],
             'specialtyId' => 'required|integer|exists:App\Models\Specialty,id',
         ];
     }
@@ -50,9 +47,6 @@ class TreatmentCreate extends Component
 
         $data = [
             'name' => $this->name,
-            'currency' => $this->currency,
-            'price_day' => $this->price_day,
-            'price_night_weekend' => $this->price_night_weekend,
             'specialty_id' => $this->specialtyId,
         ];
 

@@ -16,24 +16,6 @@
                     </div>
 
                     <div class="col-span-4">
-                        <x-label for="currency" value="{{ __('treatment.currency') }}"/>
-                        <x-input wire:model.defer="currency" id="currency" type="text" class="mt-1 block w-full" />
-                        <x-input-error for="currency" class="mt-2"/>
-                    </div>
-
-                    <div class="col-span-4">
-                        <x-label for="price_day" value="{{ __('treatment.price_day') }}"/>
-                        <x-input wire:model.defer="price_day" id="price_day" type="number" class="mt-1 block w-full" />
-                        <x-input-error for="price_day" class="mt-2"/>
-                    </div>
-
-                    <div class="col-span-4">
-                        <x-label for="price_night_weekend" value="{{ __('treatment.price_night_weekend') }}"/>
-                        <x-input wire:model.defer="price_night_weekend" id="price_night_weekend" type="number" class="mt-1 block w-full" />
-                        <x-input-error for="price_night_weekend" class="mt-2"/>
-                    </div>
-
-                    <div class="col-span-4">
                         <x-label class="text-xs" for="specialtyId" value="{{ __('specialty.specialty') }}"/>
                         <x-select wire:model="specialtyId" wire:key="specialtyCreate" class="mt-1">
                             <option value="" readonly="true" hidden="true"

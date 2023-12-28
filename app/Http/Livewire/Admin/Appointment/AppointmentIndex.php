@@ -2,8 +2,11 @@
 
 namespace App\Http\Livewire\Admin\Appointment;
 
-use App\Models\Appointment;
+use App\Models\City;
+use App\Models\Country;
 use Livewire\Component;
+use App\Models\Specialty;
+use App\Models\Appointment;
 use Livewire\WithPagination;
 
 class AppointmentIndex extends Component
@@ -45,19 +48,24 @@ class AppointmentIndex extends Component
         $this->resetPage();
     }
 
+    public function updatingSpecialty(){
+        $this->resetPage();
+    }
+
     public function updatingCountry(){
         $this->resetPage();
     }
 
-    public function updatingRole(){
+    public function updatingCity(){
         $this->resetPage();
     }
-
 
 
     public function selectedItem($action ,$itemId = null){
         if ($action == 'show'){
             $this->emit('showItemModel', $itemId);
+        }elseif ($action == 'update'){
+            $this->emit('showUpdateModel', $itemId);
         }elseif ($action == 'delete'){
             $this->emit('showDeleteModel', $itemId);
         }elseif ($action == 'restore'){
@@ -80,6 +88,20 @@ class AppointmentIndex extends Component
             $appointments = $appointments->onlyTrashed();
         }
 
+        $appointments = $appointments->with(['specialty:id,name', 'country:id,name', 'city:id,name']);
+
+        if (!empty($this->country)){
+            $appointments = $appointments->where('country_id',$this->country);
+        }
+
+        if (!empty($this->specialty)){
+            $appointments = $appointments->where('specialty_id',$this->specialty);
+        }
+
+        if (!empty($this->city)){
+            $appointments = $appointments->where('city_id',$this->city);
+        }
+
         $appointments = $appointments->paginate($this->perPage);
 
         return $appointments;
@@ -91,6 +113,9 @@ class AppointmentIndex extends Component
     {
         return view('livewire.admin.appointment.appointment-index',[
             'appointments' => $this->readyToLoad ? $this->getItem() : [],
+            'specialties' => Specialty::all()->pluck('name', 'id'),
+            'countries' => Country::all()->pluck('name' , 'id'),
+            'cities' => City::all()->pluck('name' , 'id'),
         ])->layout('layouts.admin');
     }
 
